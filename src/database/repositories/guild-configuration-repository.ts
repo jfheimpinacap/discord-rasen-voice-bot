@@ -31,9 +31,9 @@ export interface GuildConfigurationDelegate {
 export function isGuildConfigurationComplete(configuration: GuildConfiguration | null): boolean {
   return Boolean(
     configuration?.publicCategoryId &&
-      configuration.privateCategoryId &&
-      configuration.publicGeneratorChannelId &&
-      configuration.privateGeneratorChannelId,
+    configuration.privateCategoryId &&
+    configuration.publicGeneratorChannelId &&
+    configuration.privateGeneratorChannelId,
   );
 }
 

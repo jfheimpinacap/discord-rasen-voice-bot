@@ -32,14 +32,14 @@ npm run validate
 
 ## Variables de entorno
 
-| Variable | Descripción |
-| --- | --- |
-| `DISCORD_TOKEN` | Token secreto del bot. Nunca debe subirse al repositorio. |
-| `DISCORD_CLIENT_ID` | Snowflake textual de la aplicación de Discord. |
-| `DISCORD_GUILD_ID` | Snowflake textual del servidor de desarrollo. |
-| `DATABASE_URL` | URL SQLite de Prisma. El ejemplo `file:./dev.db` se resuelve desde `prisma/schema.prisma`, por lo que crea `prisma/dev.db`. |
-| `LOG_LEVEL` | `trace`, `debug`, `info`, `warn`, `error`, `fatal` o `silent`. |
-| `NODE_ENV` | `development`, `test` o `production`. |
+| Variable            | Descripción                                                                                                                 |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `DISCORD_TOKEN`     | Token secreto del bot. Nunca debe subirse al repositorio.                                                                   |
+| `DISCORD_CLIENT_ID` | Snowflake textual de la aplicación de Discord.                                                                              |
+| `DISCORD_GUILD_ID`  | Snowflake textual del servidor de desarrollo.                                                                               |
+| `DATABASE_URL`      | URL SQLite de Prisma. El ejemplo `file:./dev.db` se resuelve desde `prisma/schema.prisma`, por lo que crea `prisma/dev.db`. |
+| `LOG_LEVEL`         | `trace`, `debug`, `info`, `warn`, `error`, `fatal` o `silent`.                                                              |
+| `NODE_ENV`          | `development`, `test` o `production`.                                                                                       |
 
 La base SQLite local y sus archivos de diario están excluidos por Git. No se deben versionar bases con datos de desarrollo.
 
@@ -54,23 +54,23 @@ La migración inicial aún debe generarse después de instalar las dependencias,
 
 ## Comandos
 
-| Comando | Descripción |
-| --- | --- |
-| `npm run dev` | Ejecuta TypeScript en desarrollo y observa cambios. |
-| `npm run build` | Compila `src` en `dist`. |
-| `npm run start` | Ejecuta exclusivamente `dist/index.js`. |
-| `npm run lint` | Revisa el código con ESLint. |
-| `npm run format:check` | Comprueba el formato con Prettier. |
-| `npm run format` | Aplica formato con Prettier. |
-| `npm run test` | Ejecuta las pruebas unitarias. |
-| `npm run test:watch` | Ejecuta Vitest en modo observación. |
-| `npm run validate` | Ejecuta formato, lint, pruebas y compilación. |
-| `npm run prisma:generate` | Genera Prisma Client. |
-| `npm run prisma:format` | Formatea solamente el esquema Prisma. |
-| `npm run prisma:validate` | Valida el esquema Prisma. |
-| `npm run db:migrate:dev` | Crea o aplica migraciones en desarrollo. |
-| `npm run db:deploy` | Aplica migraciones versionadas sin crear nuevas. |
-| `npm run db:studio` | Abre Prisma Studio. |
+| Comando                   | Descripción                                         |
+| ------------------------- | --------------------------------------------------- |
+| `npm run dev`             | Ejecuta TypeScript en desarrollo y observa cambios. |
+| `npm run build`           | Compila `src` en `dist`.                            |
+| `npm run start`           | Ejecuta exclusivamente `dist/index.js`.             |
+| `npm run lint`            | Revisa el código con ESLint.                        |
+| `npm run format:check`    | Comprueba el formato con Prettier.                  |
+| `npm run format`          | Aplica formato con Prettier.                        |
+| `npm run test`            | Ejecuta las pruebas unitarias.                      |
+| `npm run test:watch`      | Ejecuta Vitest en modo observación.                 |
+| `npm run validate`        | Ejecuta formato, lint, pruebas y compilación.       |
+| `npm run prisma:generate` | Genera Prisma Client.                               |
+| `npm run prisma:format`   | Formatea solamente el esquema Prisma.               |
+| `npm run prisma:validate` | Valida el esquema Prisma.                           |
+| `npm run db:migrate:dev`  | Crea o aplica migraciones en desarrollo.            |
+| `npm run db:deploy`       | Aplica migraciones versionadas sin crear nuevas.    |
+| `npm run db:studio`       | Abre Prisma Studio.                                 |
 
 ## Estructura
 

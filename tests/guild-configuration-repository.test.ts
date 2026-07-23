@@ -33,9 +33,9 @@ describe('GuildConfigurationRepository', () => {
   });
 
   it('identifies a configuration missing a required ID as incomplete', () => {
-    expect(isGuildConfigurationComplete({ ...completeConfiguration, privateCategoryId: null })).toBe(
-      false,
-    );
+    expect(
+      isGuildConfigurationComplete({ ...completeConfiguration, privateCategoryId: null }),
+    ).toBe(false);
   });
 
   it('upserts a configuration while preserving guildId as a string', async () => {
@@ -43,7 +43,9 @@ describe('GuildConfigurationRepository', () => {
     const repository = new GuildConfigurationRepository(delegate);
     vi.mocked(delegate.upsert).mockResolvedValue(completeConfiguration);
 
-    await repository.upsert(completeConfiguration.guildId, { publicCategoryId: '123456789012345679' });
+    await repository.upsert(completeConfiguration.guildId, {
+      publicCategoryId: '123456789012345679',
+    });
 
     expect(delegate.upsert).toHaveBeenCalledWith({
       where: { guildId: '123456789012345678' },
