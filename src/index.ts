@@ -13,7 +13,9 @@ async function start(): Promise<void> {
   const environment = getEnvironment();
   const logger = createLogger(environment);
   const client = createDiscordClient();
-  const configurationRepository = new GuildConfigurationRepository(getPrismaClient().guildConfiguration);
+  const configurationRepository = new GuildConfigurationRepository(
+    getPrismaClient().guildConfiguration,
+  );
   const commandRegistry = createCommands({ configurationRepository, logger });
   attachInteractionDispatcher(client, commandRegistry, logger);
   let shuttingDown = false;

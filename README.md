@@ -28,13 +28,13 @@ El comando solo funciona dentro de un servidor y exige **Gestionar servidor** al
 
 Copie `.env.example` a `.env` y complete valores reales localmente; no los suba al repositorio.
 
-| Variable | Descripción |
-| --- | --- |
-| `DISCORD_TOKEN` | Token secreto del bot. |
-| `DISCORD_CLIENT_ID` | Snowflake textual de la aplicación. |
-| `DISCORD_GUILD_ID` | Snowflake textual del servidor de desarrollo. |
-| `DATABASE_URL` | URL SQLite; `file:./dev.db` se resuelve desde `prisma/schema.prisma`. |
-| `LOG_LEVEL` / `NODE_ENV` | Configuración segura de logging y entorno. |
+| Variable                 | Descripción                                                           |
+| ------------------------ | --------------------------------------------------------------------- |
+| `DISCORD_TOKEN`          | Token secreto del bot.                                                |
+| `DISCORD_CLIENT_ID`      | Snowflake textual de la aplicación.                                   |
+| `DISCORD_GUILD_ID`       | Snowflake textual del servidor de desarrollo.                         |
+| `DATABASE_URL`           | URL SQLite; `file:./dev.db` se resuelve desde `prisma/schema.prisma`. |
+| `LOG_LEVEL` / `NODE_ENV` | Configuración segura de logging y entorno.                            |
 
 ## Procedimiento local
 
@@ -52,12 +52,12 @@ No ejecute el bot ni registre comandos hasta autorizar una prueba manual. El pro
 
 ## Comandos npm
 
-| Comando | Descripción |
-| --- | --- |
-| `npm run dev`, `npm run build`, `npm run start` | Desarrollo, compilación y arranque. |
-| `npm run lint`, `npm run format:check`, `npm run format`, `npm run test`, `npm run validate` | Calidad local sin modificar Discord. |
-| `npm run prisma:generate`, `npm run prisma:validate`, `npm run db:deploy` | Cliente, esquema y migraciones existentes. |
-| `npm run commands:register` | Registro manual de slash commands en el servidor de desarrollo. |
+| Comando                                                                                      | Descripción                                                     |
+| -------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `npm run dev`, `npm run build`, `npm run start`                                              | Desarrollo, compilación y arranque.                             |
+| `npm run lint`, `npm run format:check`, `npm run format`, `npm run test`, `npm run validate` | Calidad local sin modificar Discord.                            |
+| `npm run prisma:generate`, `npm run prisma:validate`, `npm run db:deploy`                    | Cliente, esquema y migraciones existentes.                      |
+| `npm run commands:register`                                                                  | Registro manual de slash commands en el servidor de desarrollo. |
 
 ## Estructura
 

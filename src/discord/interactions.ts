@@ -20,23 +20,45 @@ export function createInteractionDispatcher(registry: CommandRegistry, logger: C
 
     const command = registry.find(interaction.commandName);
     if (!command) {
-      logger.warn({ commandName: interaction.commandName, guildId: interaction.guildId }, 'Unknown slash command');
+      logger.warn(
+        { commandName: interaction.commandName, guildId: interaction.guildId },
+        'Unknown slash command',
+      );
       return;
     }
 
     try {
       await command.execute(interaction);
     } catch (error) {
-      logger.error({ err: error, commandName: interaction.commandName, guildId: interaction.guildId, userId: interaction.user.id }, 'Slash command failed');
+      logger.error(
+        {
+          err: error,
+          commandName: interaction.commandName,
+          guildId: interaction.guildId,
+          userId: interaction.user.id,
+        },
+        'Slash command failed',
+      );
       try {
         await sendSafeError(interaction);
       } catch (responseError) {
-        logger.error({ err: responseError, commandName: interaction.commandName, guildId: interaction.guildId }, 'Unable to send slash command error response');
+        logger.error(
+          {
+            err: responseError,
+            commandName: interaction.commandName,
+            guildId: interaction.guildId,
+          },
+          'Unable to send slash command error response',
+        );
       }
     }
   };
 }
 
-export function attachInteractionDispatcher(client: Client, registry: CommandRegistry, logger: CommandLogger): void {
+export function attachInteractionDispatcher(
+  client: Client,
+  registry: CommandRegistry,
+  logger: CommandLogger,
+): void {
   client.on('interactionCreate', createInteractionDispatcher(registry, logger));
 }
