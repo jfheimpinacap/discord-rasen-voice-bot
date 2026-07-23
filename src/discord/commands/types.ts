@@ -1,5 +1,11 @@
-import type { ChatInputCommandInteraction, RESTPostAPIChatInputApplicationCommandsJSONBody } from 'discord.js';
-import type { GuildConfiguration, GuildConfigurationInput } from '../../database/repositories/guild-configuration-repository.js';
+import type {
+  ChatInputCommandInteraction,
+  RESTPostAPIChatInputApplicationCommandsJSONBody,
+} from 'discord.js';
+import type {
+  GuildConfiguration,
+  GuildConfigurationInput,
+} from '../../database/repositories/guild-configuration-repository.js';
 
 export interface CommandDependencies {
   readonly configurationRepository: GuildConfigurationStore;

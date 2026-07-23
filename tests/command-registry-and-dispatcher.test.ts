@@ -21,7 +21,10 @@ describe('command registry and interaction dispatcher', () => {
   });
 
   it('rejects duplicate command names', () => {
-    const command: SlashCommand = { data: { name: 'duplicate', description: 'A command', type: 1 }, execute: async () => undefined };
+    const command: SlashCommand = {
+      data: { name: 'duplicate', description: 'A command', type: 1 },
+      execute: async () => undefined,
+    };
     expect(() => createCommandRegistry([command, command])).toThrow('Duplicate slash command name');
   });
 
@@ -36,10 +39,19 @@ describe('command registry and interaction dispatcher', () => {
     const command: SlashCommand = { data: { name: 'test', description: 'Test', type: 1 }, execute };
     const interaction = {
       isChatInputCommand: () => true,
-      commandName: 'test', guildId: '123456789012345678', user: { id: '234567890123456789' },
-      deferred: false, replied: false, reply: vi.fn(), editReply: vi.fn(), followUp: vi.fn(),
+      commandName: 'test',
+      guildId: '123456789012345678',
+      user: { id: '234567890123456789' },
+      deferred: false,
+      replied: false,
+      reply: vi.fn(),
+      editReply: vi.fn(),
+      followUp: vi.fn(),
     };
-    await createInteractionDispatcher(createCommandRegistry([command]), logger)(interaction as never);
+    await createInteractionDispatcher(
+      createCommandRegistry([command]),
+      logger,
+    )(interaction as never);
 
     expect(execute).toHaveBeenCalledWith(interaction);
     expect(interaction.reply).toHaveBeenCalledWith(expect.objectContaining({ ephemeral: true }));

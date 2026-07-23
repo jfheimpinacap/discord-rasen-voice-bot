@@ -22,7 +22,13 @@ async function registerCommands(): Promise<void> {
     environment.DISCORD_GUILD_ID,
     registry.toJSON(),
   );
-  console.info({ commandCount: registry.toJSON().length, guildId: environment.DISCORD_GUILD_ID }, 'Guild slash commands registered');
+  console.info(
+    { commandCount: registry.toJSON().length, guildId: environment.DISCORD_GUILD_ID },
+    'Guild slash commands registered',
+  );
 }
 
-void registerCommands().catch((error: unknown) => { console.error({ err: error }, 'Unable to register guild slash commands'); process.exitCode = 1; });
+void registerCommands().catch((error: unknown) => {
+  console.error({ err: error }, 'Unable to register guild slash commands');
+  process.exitCode = 1;
+});
