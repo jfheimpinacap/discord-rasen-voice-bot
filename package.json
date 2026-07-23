@@ -22,7 +22,8 @@
     "prisma:validate": "prisma validate",
     "db:migrate:dev": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "commands:register": "tsx src/scripts/register-commands.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.0",
