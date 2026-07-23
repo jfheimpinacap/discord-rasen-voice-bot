@@ -29,27 +29,27 @@ Copy-Item .env.example .env
 
 Complete `.env` con valores propios. **Nunca publique ni suba el token de Discord al repositorio.**
 
-| Variable | Descripción |
-| --- | --- |
-| `DISCORD_TOKEN` | Token secreto del bot. |
-| `DISCORD_CLIENT_ID` | ID numérico (snowflake) de la aplicación de Discord. |
-| `DISCORD_GUILD_ID` | ID numérico (snowflake) del servidor de desarrollo. |
-| `LOG_LEVEL` | `trace`, `debug`, `info`, `warn`, `error`, `fatal` o `silent`. |
-| `NODE_ENV` | `development`, `test` o `production`. |
+| Variable            | Descripción                                                    |
+| ------------------- | -------------------------------------------------------------- |
+| `DISCORD_TOKEN`     | Token secreto del bot.                                         |
+| `DISCORD_CLIENT_ID` | ID numérico (snowflake) de la aplicación de Discord.           |
+| `DISCORD_GUILD_ID`  | ID numérico (snowflake) del servidor de desarrollo.            |
+| `LOG_LEVEL`         | `trace`, `debug`, `info`, `warn`, `error`, `fatal` o `silent`. |
+| `NODE_ENV`          | `development`, `test` o `production`.                          |
 
 ## Comandos
 
-| Comando | Descripción |
-| --- | --- |
-| `npm run dev` | Ejecuta TypeScript en modo desarrollo y observa cambios. |
-| `npm run build` | Compila `src` en `dist`. |
-| `npm run start` | Ejecuta exclusivamente `dist/index.js`. |
-| `npm run lint` | Revisa el código con ESLint. |
-| `npm run format:check` | Comprueba el formato con Prettier. |
-| `npm run format` | Aplica formato con Prettier. |
-| `npm run test` | Ejecuta las pruebas unitarias. |
-| `npm run test:watch` | Ejecuta Vitest en modo observación. |
-| `npm run validate` | Ejecuta formato, lint, pruebas y compilación. |
+| Comando                | Descripción                                              |
+| ---------------------- | -------------------------------------------------------- |
+| `npm run dev`          | Ejecuta TypeScript en modo desarrollo y observa cambios. |
+| `npm run build`        | Compila `src` en `dist`.                                 |
+| `npm run start`        | Ejecuta exclusivamente `dist/index.js`.                  |
+| `npm run lint`         | Revisa el código con ESLint.                             |
+| `npm run format:check` | Comprueba el formato con Prettier.                       |
+| `npm run format`       | Aplica formato con Prettier.                             |
+| `npm run test`         | Ejecuta las pruebas unitarias.                           |
+| `npm run test:watch`   | Ejecuta Vitest en modo observación.                      |
+| `npm run validate`     | Ejecuta formato, lint, pruebas y compilación.            |
 
 Para compilar y ejecutar la versión compilada:
 

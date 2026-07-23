@@ -27,9 +27,9 @@ describe('validateEnvironment', () => {
   });
 
   it('rejects an invalid Discord client ID', () => {
-    expect(() => validateEnvironment({ ...validEnvironment, DISCORD_CLIENT_ID: 'not-a-snowflake' })).toThrow(
-      'DISCORD_CLIENT_ID',
-    );
+    expect(() =>
+      validateEnvironment({ ...validEnvironment, DISCORD_CLIENT_ID: 'not-a-snowflake' }),
+    ).toThrow('DISCORD_CLIENT_ID');
   });
 
   it('rejects an invalid Discord guild ID', () => {
@@ -39,6 +39,8 @@ describe('validateEnvironment', () => {
   });
 
   it('rejects an invalid NODE_ENV value', () => {
-    expect(() => validateEnvironment({ ...validEnvironment, NODE_ENV: 'staging' })).toThrow('NODE_ENV');
+    expect(() => validateEnvironment({ ...validEnvironment, NODE_ENV: 'staging' })).toThrow(
+      'NODE_ENV',
+    );
   });
 });
