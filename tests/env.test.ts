@@ -6,6 +6,7 @@ const validEnvironment = {
   DISCORD_TOKEN: 'test-token-that-must-not-appear-in-errors',
   DISCORD_CLIENT_ID: '123456789012345678',
   DISCORD_GUILD_ID: '987654321098765432',
+  DATABASE_URL: 'file:./test.db',
   LOG_LEVEL: 'info',
   NODE_ENV: 'test',
 };
@@ -42,5 +43,19 @@ describe('validateEnvironment', () => {
     expect(() => validateEnvironment({ ...validEnvironment, NODE_ENV: 'staging' })).toThrow(
       'NODE_ENV',
     );
+  });
+
+  it('rejects a missing database URL without exposing its value', () => {
+    const input = { ...validEnvironment, DATABASE_URL: undefined };
+
+    expect(() => validateEnvironment(input)).toThrow('DATABASE_URL');
+    expect(() => validateEnvironment(input)).not.toThrow(validEnvironment.DATABASE_URL);
+  });
+
+  it('does not include a database URL in errors for other invalid values', () => {
+    const databaseUrl = 'file:./private-development-database.db';
+    const input = { ...validEnvironment, DATABASE_URL: databaseUrl, DISCORD_TOKEN: undefined };
+
+    expect(() => validateEnvironment(input)).not.toThrow(databaseUrl);
   });
 });
