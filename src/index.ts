@@ -1,6 +1,7 @@
 import type { Client } from 'discord.js';
 
 import { getEnvironment } from './config/env.js';
+import { disconnectPrisma } from './database/prisma.js';
 import { createDiscordClient } from './discord/client.js';
 import { createLogger } from './logging/logger.js';
 
@@ -16,8 +17,12 @@ async function start(): Promise<void> {
     }
 
     shuttingDown = true;
-    logger.info({ reason }, 'Shutting down Discord client');
-    client.destroy();
+    logger.info({ reason }, 'Shutting down application resources');
+    try {
+      client.destroy();
+    } finally {
+      await disconnectPrisma();
+    }
     process.exitCode = exitCode;
   };
 

@@ -16,9 +16,16 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "validate": "npm run format:check && npm run lint && npm run test && npm run build"
+    "validate": "npm run format:check && npm run lint && npm run test && npm run build",
+    "prisma:generate": "prisma generate",
+    "prisma:format": "prisma format",
+    "prisma:validate": "prisma validate",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:studio": "prisma studio"
   },
   "dependencies": {
+    "@prisma/client": "^6.19.0",
     "discord.js": "^14.25.1",
     "dotenv": "^16.6.1",
     "pino": "^9.9.4",
@@ -32,6 +39,7 @@
     "eslint-config-prettier": "^10.1.8",
     "globals": "^16.3.0",
     "prettier": "^3.6.2",
+    "prisma": "^6.19.0",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.43.0",

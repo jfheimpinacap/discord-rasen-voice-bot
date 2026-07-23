@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model GuildConfiguration {
+  id                             String   @id @default(cuid())
+  guildId                        String   @unique
+  publicCategoryId               String?
+  privateCategoryId              String?
+  publicGeneratorChannelId       String?
+  privateGeneratorChannelId      String?
+  emptyChannelDeleteDelaySeconds Int      @default(5)
+  createdAt                      DateTime @default(now())
+  updatedAt                      DateTime @updatedAt
+}
+
+model TemporaryVoiceChannel {
+  id          String   @id @default(cuid())
+  guildId     String
+  channelId   String   @unique
+  ownerId     String?
+  channelType String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([guildId])
+}
